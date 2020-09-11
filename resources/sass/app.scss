@@ -7,6 +7,18 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 @import "~bootstrap/scss/bootstrap";
 @import "~admin-lte/dist/css/adminlte";
 // font awesome
-@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
-@import "~@fortawesome/fontawesome-free/scss/solid.scss";
-@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+// @import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+// @import "~@fortawesome/fontawesome-free/scss/solid.scss";
+// @import "~@fortawesome/fontawesome-free/scss/brands.scss";
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+// css edit for header profile
+.l-inline {
+    overflow: visible!important;
+}
+
+.dropdown-menu {
+    min-width: 6.5rem!important;
+}

@@ -23,4 +23,9 @@ class Product extends Model
         $topProduct = DB::table('products')->orderBy('id', 'ASC')->get()->take($count - 8);
         return ($topProduct);
     }
+    public function ProductType()
+    {
+        $producttype = DB::table('product_types')->get();
+        return ($producttype);
+    }
 }

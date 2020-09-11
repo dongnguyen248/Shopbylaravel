@@ -2,11 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use App\Product;
 
+use Illuminate\Http\Request;
+// use AuthenticatesUsers {
+//     logout as performLogout;
+// }
 
 class HomeController extends Controller
 {
+
+
     /**
      * Create a new controller instance.
      *
@@ -26,6 +34,20 @@ class HomeController extends Controller
     {
         return view('layouts.admin.homeAdmin');
     }
-
-    
+    public function getLogout()
+    {
+        Auth::logout();
+        Session::flush();
+        return redirect('trangchu');
+    }
+    public function profile()
+    {
+        return view('layouts.profile');
+    }
+    public function gettypeproduct()
+    {
+        $productType = new Product();
+        $productType = $productType->ProductType();
+        return (compact('productType'));
+    }
 }

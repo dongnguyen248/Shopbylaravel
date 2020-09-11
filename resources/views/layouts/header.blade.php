@@ -7,13 +7,52 @@
 						<li><a href=""><i class="fa fa-phone"></i> 0163 296 7751</a></li>
 					</ul>
 				</div>
-				<div class="pull-right auto-width-right">
+				{{-- <div class="pull-right auto-width-right">
 					<ul class="top-details menu-beta l-inline">
+					
 						<li><a href="#"><i class="fa fa-user"></i>Tài khoản</a></li>
 					<li><a href="{{route('customerregister')}}">Đăng kí</a></li>
-						<li><a href={{route('customerlogin')}}>Đăng nhập</a></li>
+						<li><a href="{{ route('login') }}">Đăng nhập</a></li>
 					</ul>
-				</div>
+				</div> --}}
+				<div class="pull-right auto-width-right " >
+					<!-- Right Side Of Navbar -->
+					<ul class="top-details menu-beta l-inline">
+							<!-- Authentication Links -->
+							@guest
+									<li class="nav-item">
+											<a class="nav-link" href="{{ route('login') }}">Đăng nhập</a>
+									</li>
+								 @if (Route::has('register'))
+											<li class="nav-item">
+													<a class="nav-link" href="{{ route('register') }}">Đăng kí</a>
+											</li>
+									@endif 
+							@else
+							{{-- <div class="dropdown">
+								<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Dropdown button
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									<a class="dropdown-item" href="#">Action</a>
+									<a class="dropdown-item" href="#">Another action</a>
+									<a class="dropdown-item" href="#">Something else here</a>
+								</div>
+							</div> --}}
+									<li class="nav-item dropdown">
+											<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+													{{ Auth::user()->name }} <span class="caret"></span>
+											</a>
+
+											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+												<a class="dropdown-item" href="{{ route('profile')}}">Your Profile</a>
+											<a class="dropdown-item" href="{{ route('cuslogout')}}">Sign Out</a>
+											
+											</div>
+									</li>
+							@endguest
+					</ul>
+			</div>
 				<div class="clearfix"></div>
 			</div> <!-- .container -->
 		</div> <!-- .header-top -->
@@ -93,8 +132,8 @@
 				<router-link to="/trangchu" class="nav-link">Trang chủ<span class="sr-only">(current)</span></router-link>
         </li>
         <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Sản phẩm
+				<a class="nav-link dropdown-toggle" href="{{route('productType')}}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Bánh Ngọt
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           @foreach($productTypes as $productType)

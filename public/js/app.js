@@ -3550,40 +3550,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   watch: {
     filterUser: function filterUser() {
@@ -3642,7 +3608,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("api/user").then(function (_ref2) {
         var data = _ref2.data;
         _this2.users = data.data;
-        console.log(data);
+        console.log(_this2.users[0].isAdmin);
         _this2.totalPage = data.last_page;
       });
       this.$Progress.finish();
@@ -68436,9 +68402,7 @@ var render = function() {
                   }
                 },
                 [
-                  _vm._v(
-                    "\n                            Add new\n                            "
-                  ),
+                  _vm._v("\n              Add new\n              "),
                   _c("i", { staticClass: "fa fa-user-plus fa-fw" })
                 ]
               )
@@ -68459,7 +68423,9 @@ var render = function() {
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(user.email))]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(_vm._f("upFirst")(user.type)))]),
+                    user.isAdmin == 1
+                      ? _c("td", [_vm._v("Admin")])
+                      : _c("td", [_vm._v("User")]),
                     _vm._v(" "),
                     _c("td", [
                       _vm._v(_vm._s(_vm._f("myDate")(user.created_at)))
@@ -68476,9 +68442,7 @@ var render = function() {
                           }
                         })
                       ]),
-                      _vm._v(
-                        "\n                                    /\n                                    "
-                      ),
+                      _vm._v("\n                  /\n                  "),
                       _c("a", { attrs: { href: "#" } }, [
                         _c("i", {
                           staticClass: "fa fa-trash text-red",
@@ -68537,11 +68501,7 @@ var render = function() {
           _c("div", { staticClass: "modal-content" }, [
             _c("div", { staticClass: "modal-header" }, [
               _c("h5", { staticClass: "modal-title" }, [
-                _vm._v(
-                  "\n                        " +
-                    _vm._s(_vm.isEdit ? "Edit user" : "Add new") +
-                    "\n                    "
-                )
+                _vm._v(_vm._s(_vm.isEdit ? "Edit user" : "Add new"))
               ]),
               _vm._v(" "),
               _vm._m(1)
@@ -68749,11 +68709,7 @@ var render = function() {
                       staticClass: "btn btn-secondary",
                       attrs: { type: "button", "data-dismiss": "modal" }
                     },
-                    [
-                      _vm._v(
-                        "\n                            Cancel\n                        "
-                      )
-                    ]
+                    [_vm._v("Cancel")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -68762,13 +68718,7 @@ var render = function() {
                       staticClass: "btn btn-primary",
                       attrs: { type: "submit" }
                     },
-                    [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(_vm.isEdit ? "Update" : "Create") +
-                          "\n                        "
-                      )
-                    ]
+                    [_vm._v(_vm._s(_vm.isEdit ? "Update" : "Create"))]
                   )
                 ])
               ]

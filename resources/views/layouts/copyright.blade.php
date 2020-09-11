@@ -1,6 +1,6 @@
 <div class="copyright">
 		<div class="container">
-			<p class="pull-left">Privacy policy. (&copy;) 2014</p>
+			<p class="pull-left">Privacy policy. (&copy;) 2020</p>
 			<p class="pull-right pay-options">
 				<a href="#"><img src="assets/dest/images/pay/master.jpg" alt="" /></a>
 				<a href="#"><img src="assets/dest/images/pay/pay.jpg" alt="" /></a>

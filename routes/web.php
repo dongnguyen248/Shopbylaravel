@@ -11,8 +11,10 @@
 |
 */
 
-Route::get('/homeAdmin', 'HomeController@index')->name('homeAdmin');
-
+Route::get('/homeAdmin', 'HomeController@index')->name('homeAdmin')->middleware('is_admin');
+Route::get('/logout', 'HomeController@getLogout')->name('cuslogout');
+Route::get('/profile', 'HomeController@profile')->name('profile');
+Route::get('/productType', 'HomeController@index')->name('productType');
 Route::get('/', function () {
     return redirect('/trangchu');
 })->name('trang-chu');
